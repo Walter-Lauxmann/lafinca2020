@@ -1,4 +1,4 @@
-    <section class="section section-basic">
+<div class="section section-basic">
       <div class="container">
         <div class="title">
           <h2>Inmuebles destacados</h2>
@@ -46,4 +46,4 @@
           </div>
         </div>
       </div>
-    </section>
+    </div>

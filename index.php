@@ -10,8 +10,7 @@
 
  =========================================================
 
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. 
--->
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 
 
 <!DOCTYPE html>
@@ -36,19 +35,21 @@
 </head>
 
 <body class="index-page sidebar-collapse">
-  <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
-    <?php include_once './vistas/nav.php'; ?>
-  </nav>
-  <div class="page-header header-filter clear-filter purple-filter" data-parallax="true" style="background-image: url('./assets/img/city.jpg');">
-    <?php include_once './vistas/header.php'; ?>
-  </div>
+  <?php
+    include_once "./vistas/nav.php";
+  ?>
+  <?php
+    include_once "./vistas/header.php";
+  ?>
   <div class="main main-raised">
-    <?php include_once './vistas/destacados.php'; ?>
+    <?php
+      include_once "./vistas/destacados.php";
+    ?>
   </div>
-
-  <footer class="footer" data-background-color="black">
-    <?php include_once './vistas/footer.php'; ?>
-  </footer>
+  <?php
+    include_once "./vistas/footer.php";
+  ?>
+  
   <!--   Core JS Files   -->
   <script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
   <script src="./assets/js/core/popper.min.js" type="text/javascript"></script>

@@ -1,3 +1,4 @@
+<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="index.html">
@@ -55,3 +56,4 @@
         </ul>
       </div>
     </div>
+  </nav>
