@@ -12,7 +12,7 @@
 
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 
-
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -36,14 +36,18 @@
 
 <body class="index-page sidebar-collapse">
   <?php
-    include_once "./vistas/nav.php";
-  ?>
-  <?php
-    include_once "./vistas/header.php";
+   
+    if(!isset($_SESSION['usuario'])){
+      include_once "./vistas/login.php";
+    } else {
+      include_once "./vistas/nav.php";
+      include_once "./vistas/header.php";
+        
   ?>
   <div class="main main-raised">
     <?php
       include_once "./vistas/destacados.php";
+    }
     ?>
   </div>
   <?php
