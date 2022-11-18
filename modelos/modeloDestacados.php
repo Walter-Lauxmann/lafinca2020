@@ -1,4 +1,4 @@
 <?php
-    $destacados = array()
+    $destacados = array();
     
 ?>

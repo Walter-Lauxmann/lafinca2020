@@ -10,9 +10,29 @@
 
  =========================================================
 
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. 
+-->
 
-<?php session_start(); ?>
+<?php
+session_start(); // Iniciamos el array $_SESSION en el servidor
+if (isset($_SESSION['usuario'])) {
+  $usuario = $_SESSION['usuario'];
+}
+if (isset($_SESSION['rol'])) {
+  $rol = $_SESSION['rol'];
+}
+if (isset($_SESSION['id'])) {
+  $userid = $_SESSION['id'];
+}
+if (isset($_GET['page'])) {
+  $page = $_GET['page'];
+}
+if (isset($_GET['id'])) {
+  $id = $_GET['id'];
+}
+require_once './config.php';
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -36,24 +56,33 @@
 
 <body class="index-page sidebar-collapse">
   <?php
-   
-    if(!isset($_SESSION['usuario'])){
-      include_once "./vistas/login.php";
+  if (!isset($usuario)) {                 // Si NO está seteado $usuario
+    include_once RUTA_VISTA . "login.php";  // Incluír login.php
+  } else {                              // sino
+    include_once RUTA_VISTA . "nav.php";    // Incluír nav.php
+    if (isset($page)) {
+      switch ($page) {
+        case 'edificios':
+          if (!isset($id)) {
+            include_once RUTA_VISTA . "edificios/gestion-edificios.php";
+          } else {
+            include_once RUTA_VISTA . "edificios/form-edificio.php";
+          }
+          break;
+        case 'edificio':
+          include_once RUTA_VISTA . "edificios/edificio.php";
+          break;
+        default:
+          include_once RUTA_VISTA . "gestion-inmuebles.php";
+          break;
+      }
     } else {
-      include_once "./vistas/nav.php";
-      include_once "./vistas/header.php";
-        
-  ?>
-  <div class="main main-raised">
-    <?php
-      include_once "./vistas/destacados.php";
+      include_once RUTA_VISTA . "gestion-inmuebles.php";
     }
-    ?>
-  </div>
-  <?php
-    include_once "./vistas/footer.php";
+  }
+  include_once RUTA_VISTA . "footer.php";
   ?>
-  
+
   <!--   Core JS Files   -->
   <script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
   <script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
@@ -84,7 +113,6 @@
         }, 1000);
       }
     }
-
   </script>
 </body>
 
